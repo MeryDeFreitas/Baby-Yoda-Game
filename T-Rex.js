@@ -1,10 +1,10 @@
-document.addEventListener('DOMContentLoad', () =>{
+document.addEventListener('DOMContentLoaded', () => {
     const dino = document.querySelector('.dino')
-
+    
     function control(e) {
-        if(e.keycode === 38){
+        if (e.keyCode === 32) {
             console.log('pressed')
-        }
-    }
-    document.addEventListener("keyup", control)
-})
+        } 
+      }
+      document.addEventListener('keyup', control)
+    })
