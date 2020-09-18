@@ -22,12 +22,12 @@ document.addEventListener('DOMContentLoaded', () => {
     let count = 0
     let timerId = setInterval(function () {
       //move down
-      if (count === 15) {
-        clearInterval(timerId) //Cancela el setInterval anterior
-        let downTimerId = setInterval(function () {
-          if (count === 0) {
+      if (count ===15) {
+        clearInterval(timerId) //Cancela el setInterval anterior, evita que siga subiendo el dinosaurio
+        let downTimerId = setInterval(function () { //Para que el dinosaurio no se quede arriba y pueda bajar
+          if (count === 0) { //Para evitar que el dinosaurio baje por debajo del suelo se detiene el setInterval de downTimerId cuando llega a 0
             clearInterval(downTimerId)
-            isJumping = false
+            isJumping = false //para que puedas volver a presionar la recla 32 y ejecutar la funcion
           }
           position -= 5
           count--
@@ -43,5 +43,5 @@ document.addEventListener('DOMContentLoaded', () => {
       dino.style.bottom = position + 'px'
     },20)
   }
-
+//Repasar a partir de minuto 15
 })
