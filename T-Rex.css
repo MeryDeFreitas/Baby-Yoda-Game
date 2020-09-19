@@ -1,3 +1,21 @@
+body{
+    background-color: black;
+}
+
+h1{
+    font-family: 'Ranchers', cursive;
+    font-size: 60px;
+    color: darkgreen;
+    text-align: center;
+}
+
+h2{
+    font-family: 'Ranchers', cursive;
+    color: white;
+    font-size: 60px;
+    text-align: center;
+}
+
 .dino{
     width: 60px;
     height: 60px;

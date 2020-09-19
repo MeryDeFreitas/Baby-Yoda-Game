@@ -43,7 +43,7 @@ document.addEventListener('DOMContentLoaded', () => {
       count++
       position = position * gravity
       dino.style.bottom = position + 'px'
-    },20)
+    },10)
   }
 
   //Generar obstaculos
@@ -64,7 +64,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let timerID = setInterval(function(){
       if(obstaclePosition >0 && obstaclePosition <60 && position <60){
         clearInterval(timerID)
-        alert.innerHTML = 'Game Over'
+        alert.innerHTML = 'Game Over!'
         gameOver = true
         //remove all children
         while(grid.firstChild){
