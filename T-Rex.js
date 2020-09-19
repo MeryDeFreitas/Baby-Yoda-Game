@@ -1,7 +1,10 @@
 document.addEventListener('DOMContentLoaded', () => {
   const dino = document.querySelector('.dino')
+  const grid = document.querySelector('.grid')
+  const alert = document.getElementById('alert')
   let isJumping = false
   let gravity = 0.9
+  let gameOver = false
   
   function control(e) {
     if (e.keyCode === 32) {
@@ -34,7 +37,6 @@ document.addEventListener('DOMContentLoaded', () => {
           position = position * gravity
           dino.style.bottom = position + 'px'
         },20)
-  
       }
       //move up
       position +=30
@@ -43,5 +45,38 @@ document.addEventListener('DOMContentLoaded', () => {
       dino.style.bottom = position + 'px'
     },20)
   }
-//Repasar a partir de minuto 15
+
+  //Generar obstaculos
+  function generateObstacles(){
+    let randomTime = Math.random() * 4000
+    //Crear el obstaculo
+    let obstaclePosition = 1000 //Distancia con el dinosaurio
+    const obstacle = document.createElement('div')
+    if(!gameOver){
+      //Si perdemos no se genera mas obstaculos
+      obstacle.classList.add('obstacle')
+      grid.appendChild(obstacle)
+      obstacle.style.left = obstaclePosition + 'px'
+
+    }
+
+    //Hacer que se muevan los obstaculos
+    let timerID = setInterval(function(){
+      if(obstaclePosition >0 && obstaclePosition <60 && position <60){
+        clearInterval(timerID)
+        alert.innerHTML = 'Game Over'
+        gameOver = true
+        //remove all children
+        while(grid.firstChild){
+          grid.removeChild(grid.lastChild)
+        }
+      }
+      obstaclePosition -=10
+      obstacle.style.left = obstaclePosition + 'px'
+    },20)
+    if(!gameOver){
+      setTimeout(generateObstacles, randomTime)
+    }
+  }
+  generateObstacles()
 })
