@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
         isJumping = true
         jump()
         audio.play();
-        Puntos.innerHTML = 'Tienes ' + points + ' puntos'
+        Puntos.innerHTML = 'Puntuación: ' + points + ' puntos'
       }
     }
   }
@@ -31,14 +31,14 @@ document.addEventListener('DOMContentLoaded', () => {
     let count = 0
     let timerId = setInterval(function () {
       //move down
-      if (count ===15) {
+      if (count ===12) {
         clearInterval(timerId) //Cancela el setInterval anterior, evita que siga subiendo el BabyYoda
         let downTimerId = setInterval(function () { //Para que el BabyYoda no se quede arriba y pueda bajar
           if (count === 0) { //Para evitar que el BabyYoda baje por debajo del suelo se detiene el setInterval de downTimerId cuando llega a 0
             clearInterval(downTimerId)
             isJumping = false //para que puedas volver a presionar la recla 32 y ejecutar la funcion
           }
-          position -= 5
+          position -=5
           count--
           position = position * gravity
           BabyYoda.style.bottom = position + 'px'
@@ -56,7 +56,7 @@ document.addEventListener('DOMContentLoaded', () => {
   function generateObstacles(){
     let randomTime = Math.random() * 4000
     //Crear el obstaculo
-    let obstaclePosition = 1000 //Distancia con el BabyYoda
+    let obstaclePosition = 1300 //Distancia con el BabyYoda
     const obstacle = document.createElement('div')
     if(!gameOver){
       //Si perdemos no se genera mas obstaculos
