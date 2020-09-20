@@ -5,6 +5,8 @@ document.addEventListener('DOMContentLoaded', () => {
   let isJumping = false
   let gravity = 0.9
   let gameOver = false
+
+  var audio = document.getElementById("audio");
   
   function control(e) {
     if (e.keyCode === 32) {
@@ -12,6 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
         //Cuando presione tecla 32 el dinosaurio salta
         isJumping = true
         jump()
+        audio.play();
       }
     }
   }

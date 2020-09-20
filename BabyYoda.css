@@ -32,3 +32,8 @@ h2{
     background-color: orange;
     bottom: 0px;
 }
+
+
+#audio{
+    display: none
+    }
