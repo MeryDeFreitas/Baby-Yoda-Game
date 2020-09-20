@@ -2,9 +2,11 @@ document.addEventListener('DOMContentLoaded', () => {
   const BabyYoda = document.querySelector('.BabyYoda')
   const grid = document.querySelector('.grid')
   const alert = document.getElementById('alert')
+  const Puntos = document.getElementById('Puntos')
   let isJumping = false
   let gravity = 0.9
   let gameOver = false
+  let points = 0
 
   var audio = document.getElementById("audio");
   
@@ -15,6 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
         isJumping = true
         jump()
         audio.play();
+        Puntos.innerHTML = 'Tienes ' + points + ' puntos'
       }
     }
   }
@@ -60,9 +63,7 @@ document.addEventListener('DOMContentLoaded', () => {
       obstacle.classList.add('obstacle')
       grid.appendChild(obstacle)
       obstacle.style.left = obstaclePosition + 'px'
-
     }
-
     //Hacer que se muevan los obstaculos
     let timerID = setInterval(function(){
       if(obstaclePosition >0 && obstaclePosition <60 && position <60){
@@ -79,6 +80,7 @@ document.addEventListener('DOMContentLoaded', () => {
     },20)
     if(!gameOver){
       setTimeout(generateObstacles, randomTime)
+      points++
     }
   }
   generateObstacles()
