@@ -16,20 +16,29 @@ h2{
     text-align: center;
 }
 
-.dino{
-    width: 60px;
-    height: 60px;
-    background-color: red;
-    /* Para poner el dinosaurio abajo */
+.grid{
+    margin: 40px;
+    padding: 40px;
+}
+
+.BabyYoda{
+    background-image: url('baby-yoda.png');
+    background-size: 80px 80px;
+    background-repeat: no-repeat;
+    width: 100px;
+    height: 100px;
+    /* Para poner el BabyYoda abajo */
     position: absolute;
     bottom: 0px;
 }
 
 .obstacle{
+    background-image: url('storm.png');
+    background-size: 80px 80px;
+    background-repeat: no-repeat;
+    width: 100px;
+    height: 100px;
     position: absolute;
-    width: 60px;
-    height: 60px;
-    background-color: orange;
     bottom: 0px;
 }
 

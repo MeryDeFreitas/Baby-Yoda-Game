@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-  const dino = document.querySelector('.dino')
+  const BabyYoda = document.querySelector('.BabyYoda')
   const grid = document.querySelector('.grid')
   const alert = document.getElementById('alert')
   let isJumping = false
@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
   function control(e) {
     if (e.keyCode === 32) {
       if (!isJumping) {
-        //Cuando presione tecla 32 el dinosaurio salta
+        //Cuando presione tecla 32 el BabyYoda salta
         isJumping = true
         jump()
         audio.play();
@@ -29,23 +29,23 @@ document.addEventListener('DOMContentLoaded', () => {
     let timerId = setInterval(function () {
       //move down
       if (count ===15) {
-        clearInterval(timerId) //Cancela el setInterval anterior, evita que siga subiendo el dinosaurio
-        let downTimerId = setInterval(function () { //Para que el dinosaurio no se quede arriba y pueda bajar
-          if (count === 0) { //Para evitar que el dinosaurio baje por debajo del suelo se detiene el setInterval de downTimerId cuando llega a 0
+        clearInterval(timerId) //Cancela el setInterval anterior, evita que siga subiendo el BabyYoda
+        let downTimerId = setInterval(function () { //Para que el BabyYoda no se quede arriba y pueda bajar
+          if (count === 0) { //Para evitar que el BabyYoda baje por debajo del suelo se detiene el setInterval de downTimerId cuando llega a 0
             clearInterval(downTimerId)
             isJumping = false //para que puedas volver a presionar la recla 32 y ejecutar la funcion
           }
           position -= 5
           count--
           position = position * gravity
-          dino.style.bottom = position + 'px'
+          BabyYoda.style.bottom = position + 'px'
         },20)
       }
       //move up
       position +=30
       count++
       position = position * gravity
-      dino.style.bottom = position + 'px'
+      BabyYoda.style.bottom = position + 'px'
     },10)
   }
 
@@ -53,7 +53,7 @@ document.addEventListener('DOMContentLoaded', () => {
   function generateObstacles(){
     let randomTime = Math.random() * 4000
     //Crear el obstaculo
-    let obstaclePosition = 1000 //Distancia con el dinosaurio
+    let obstaclePosition = 1000 //Distancia con el BabyYoda
     const obstacle = document.createElement('div')
     if(!gameOver){
       //Si perdemos no se genera mas obstaculos
